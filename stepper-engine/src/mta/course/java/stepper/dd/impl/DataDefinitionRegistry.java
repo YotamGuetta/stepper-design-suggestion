@@ -16,9 +16,6 @@ public enum DataDefinitionRegistry implements DataDefinition{
     }
 
     private final DataDefinition dataDefinition;
-    public DataDefinition getDD() {
-        return dataDefinition;
-    }
 
     @Override
     public String getName() {
