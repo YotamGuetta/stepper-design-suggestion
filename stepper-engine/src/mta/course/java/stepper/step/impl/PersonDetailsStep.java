@@ -1,6 +1,7 @@
 package mta.course.java.stepper.step.impl;
 
 import mta.course.java.stepper.dd.impl.DataDefinitionRegistry;
+import mta.course.java.stepper.flow.execution.context.StepExecutionContext;
 import mta.course.java.stepper.step.api.AbstractStepDefinition;
 import mta.course.java.stepper.step.api.DataDefinitionDeclarationImpl;
 import mta.course.java.stepper.step.api.DataNecessity;
@@ -21,13 +22,21 @@ public class PersonDetailsStep extends AbstractStepDefinition {
     }
 
     @Override
-    public StepResult invoke() {
+    public StepResult invoke(StepExecutionContext context) {
         // fetch inputs here, somehow
+        String firstName = context.getDataValue("STRING_1", String.class);
+        String lastName = context.getDataValue("STRING_2", String.class);
+        Double age = context.getDataValue("AGE", Double.class);
 
-        // logic
-        System.out.println("Hello world");
+        // do some complex logic...
+        String greeting = "Hello " + firstName.toUpperCase() + " " + lastName.toUpperCase() + "! You were born " + age + " Years ago !";
 
         // add outputs here, somehow
+        context.storeDataValue("DETAILS", greeting);
+
+        // through the context, as part of writing the step's logic I should be able to:
+        // 1. add log lines
+        // 2. add summary line
 
         // return result
         return StepResult.SUCCESS;
