@@ -1,13 +1,15 @@
 package mta.course.java.stepper.flow.definition.api;
 
-import mta.course.java.stepper.flow.definition.api.StepUsageDeclaration;
+import mta.course.java.stepper.step.api.DataDefinitionDeclaration;
 
 import java.util.List;
 
 public interface FlowDefinition {
-    String name();
-    String description();
-    List<StepUsageDeclaration> steps();
-    List<String> formalOutputs();
+    String getName();
+    String getDescription();
+    List<StepUsageDeclaration> getFlowSteps();
+    List<String> getFlowFormalOutputs();
+
     void validateFlowStructure();
+    List<DataDefinitionDeclaration> getFlowFreeInputs();
 }

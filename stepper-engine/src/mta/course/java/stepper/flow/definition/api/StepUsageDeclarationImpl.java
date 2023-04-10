@@ -22,12 +22,12 @@ public class StepUsageDeclarationImpl implements StepUsageDeclaration {
     }
 
     @Override
-    public String stepName() {
+    public String getFinalStepName() {
         return stepName;
     }
 
     @Override
-    public StepDefinition stepDefinition() {
+    public StepDefinition getStepDefinition() {
         return stepDefinition;
     }
 

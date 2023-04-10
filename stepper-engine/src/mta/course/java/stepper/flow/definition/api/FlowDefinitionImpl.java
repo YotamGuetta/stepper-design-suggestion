@@ -1,5 +1,7 @@
 package mta.course.java.stepper.flow.definition.api;
 
+import mta.course.java.stepper.step.api.DataDefinitionDeclaration;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,32 +23,33 @@ public class FlowDefinitionImpl implements FlowDefinition {
         flowOutputs.add(outputName);
     }
 
-    public void addStepToFlow(StepUsageDeclaration stepUsageDeclaration) {
-        steps.add(stepUsageDeclaration);
-    }
-
     @Override
     public void validateFlowStructure() {
         // do some validation logic...
     }
 
     @Override
-    public String name() {
+    public List<DataDefinitionDeclaration> getFlowFreeInputs() {
+        return new ArrayList<>();
+    }
+
+    @Override
+    public String getName() {
         return name;
     }
 
     @Override
-    public String description() {
+    public String getDescription() {
         return description;
     }
 
     @Override
-    public List<StepUsageDeclaration> steps() {
+    public List<StepUsageDeclaration> getFlowSteps() {
         return steps;
     }
 
     @Override
-    public List<String> formalOutputs() {
+    public List<String> getFlowFormalOutputs() {
         return flowOutputs;
     }
 }
