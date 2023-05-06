@@ -1,4 +1,4 @@
-package mta.course.java.stepper.dd.impl.number;
+package mta.course.java.stepper.dd.impl.numbers;
 
 import mta.course.java.stepper.dd.api.AbstractDataDefinition;
 

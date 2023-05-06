@@ -9,12 +9,14 @@ public abstract class AbstractStepDefinition implements StepDefinition {
     private final boolean readonly;
     private final List<DataDefinitionDeclaration> inputs;
     private final List<DataDefinitionDeclaration> outputs;
+    private String summery;
 
     public AbstractStepDefinition(String stepName, boolean readonly) {
         this.stepName = stepName;
         this.readonly = readonly;
         inputs = new ArrayList<>();
         outputs = new ArrayList<>();
+        summery = "";
     }
 
     protected void addInput(DataDefinitionDeclaration dataDefinitionDeclaration) {
@@ -24,7 +26,9 @@ public abstract class AbstractStepDefinition implements StepDefinition {
     protected void addOutput(DataDefinitionDeclaration dataDefinitionDeclaration) {
         outputs.add(dataDefinitionDeclaration);
     }
-
+    protected void addSummery(String summery){
+        this.summery = summery;
+    }
     @Override
     public String name() {
         return stepName;
@@ -43,5 +47,9 @@ public abstract class AbstractStepDefinition implements StepDefinition {
     @Override
     public List<DataDefinitionDeclaration> outputs() {
         return outputs;
+    }
+    @Override
+    public String getSummery() {
+        return summery;
     }
 }
